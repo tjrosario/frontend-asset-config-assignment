@@ -1,0 +1,43 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "import", "promise", "react", "jsx-a11y", "vitest"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "pedantic": "off",
+    "style": "off"
+  },
+  "rules": {
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "prefer-const": "error",
+    "no-var": "error",
+    "eqeqeq": ["error", "always", { "null": "ignore" }],
+    "no-useless-concat": "error",
+    "no-useless-rename": "error",
+    "no-useless-escape": "warn",
+    "dot-notation": "warn",
+    "prefer-template": "warn",
+    "react/react-in-jsx-scope": "off",
+    "sort-keys": [
+      "error",
+      "asc",
+      {
+        "allowLineSeparatedGroups": true,
+        "caseSensitive": false,
+        "minKeys": 2,
+        "natural": true
+      }
+    ],
+    "import/no-unassigned-import": [
+      "warn",
+      {
+        "allow": ["**/*.css", "**/*.scss", "**/*.sass", "**/*.less", "**/*.styl", "**/setup.ts"]
+      }
+    ],
+    "vitest/no-focused-tests": "error",
+    "vitest/no-disabled-tests": "warn",
+    "vitest/expect-expect": "warn"
+  },
+  "env": { "browser": true, "es2024": true, "node": true },
+  "ignorePatterns": ["coverage", "dist", "node_modules", "src/test/setup.ts"]
+}
