@@ -1,8 +1,12 @@
 import { axe } from "jest-axe";
 import { describe, expect, it, vi } from "vitest";
 
-import { AssetType, type SectionPayload, type TransformerPayload } from "../../domain/assetTypes";
-import { renderWithProviders } from "../../test/renderWithProviders";
+import {
+  AssetType,
+  type SectionPayload,
+  type TransformerPayload,
+} from "../../../domain/assetTypes";
+import { renderWithProviders } from "../../../test/renderWithProviders";
 import { AssetConfigurationForm } from "../AssetConfigurationForm";
 import { SectionConfigurationForm } from "../SectionConfigurationForm";
 import { TransformerConfigurationForm } from "../TransformerConfigurationForm";

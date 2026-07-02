@@ -21,6 +21,9 @@ the concrete form for that type.
 Each concrete form owns its own React Hook Form instance. The rendered form is keyed by asset type so React
 throws away stale field state when the user switches from one asset shape to another.
 
+The form components live under `components/asset-configuration` because they are one feature family. General
+page framing controls, such as the header and color-mode toggle, live under `components/layout`.
+
 ## Unsupported Assets
 
 `BREAKER` is represented explicitly, but no breaker fields were provided in the assignment. The app renders a

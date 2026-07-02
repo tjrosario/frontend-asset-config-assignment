@@ -41,12 +41,14 @@ docs/
   architecture.md                   Architecture and implementation notes.
   frontend_interview_assignment.pdf Original assignment prompt.
 src/
-  components/   Reusable asset configuration form components and component tests.
-  domain/       Asset enums, payload interfaces, and Zod schemas.
-  pages/        Page-level composition for the assignment UI.
-  routes/       Route definitions and metadata management.
-  test/         Shared test setup and provider-aware render helper.
-  theme/        Material UI theme configuration.
+  components/
+    asset-configuration/ Feature components and tests for asset forms.
+    layout/              Shared page framing controls.
+  domain/                Asset enums, payload interfaces, and Zod schemas.
+  pages/                 Page-level composition for the assignment UI.
+  routes/                Route definitions and metadata management.
+  test/                  Shared test setup and provider-aware render helper.
+  theme/                 Material UI theme configuration.
 ```
 
 Additional architecture notes live in `docs/architecture.md`.
@@ -130,6 +132,7 @@ Tests use Vitest with the `jsdom` environment.
 - Component tests use React Testing Library.
 - Interaction tests use `@testing-library/user-event`.
 - Accessibility checks use `jest-axe`.
+- Layout component tests cover the page header and color-mode toggle.
 - Schema tests exercise the Zod validation layer directly.
 - Route metadata tests verify document title, description, and canonical tags.
 - Shared providers are supplied by `src/test/renderWithProviders.tsx`.

@@ -21,3 +21,5 @@ export interface SectionPayload {
   conductorType: string;
   groundedNeutral: boolean;
 }
+
+export type AssetPayload = SectionPayload | TransformerPayload;

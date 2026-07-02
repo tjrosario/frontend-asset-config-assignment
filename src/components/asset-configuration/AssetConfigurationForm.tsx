@@ -1,6 +1,6 @@
 import { Alert } from "@mui/material";
 
-import { AssetType, type SectionPayload, type TransformerPayload } from "../domain/assetTypes";
+import { AssetType, type SectionPayload, type TransformerPayload } from "../../domain/assetTypes";
 
 import { SectionConfigurationForm } from "./SectionConfigurationForm";
 import { TransformerConfigurationForm } from "./TransformerConfigurationForm";

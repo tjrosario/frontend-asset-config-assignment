@@ -3,8 +3,8 @@ import { Box, Button, FormControlLabel, Stack, Switch, TextField, Typography } f
 import { Controller, useForm } from "react-hook-form";
 import type { z } from "zod";
 
-import { sectionSchema } from "../domain/assetSchemas";
-import { AssetType, type SectionPayload } from "../domain/assetTypes";
+import { sectionSchema } from "../../domain/assetSchemas";
+import { AssetType, type SectionPayload } from "../../domain/assetTypes";
 
 interface SectionConfigurationFormProps {
   onSubmit: (payload: SectionPayload) => void;

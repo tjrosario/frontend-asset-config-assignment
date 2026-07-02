@@ -14,8 +14,8 @@ import {
 import { Controller, useForm } from "react-hook-form";
 import type { z } from "zod";
 
-import { transformerSchema } from "../domain/assetSchemas";
-import { AssetType, CoolingType, type TransformerPayload } from "../domain/assetTypes";
+import { transformerSchema } from "../../domain/assetSchemas";
+import { AssetType, CoolingType, type TransformerPayload } from "../../domain/assetTypes";
 
 interface TransformerConfigurationFormProps {
   onSubmit: (payload: TransformerPayload) => void;

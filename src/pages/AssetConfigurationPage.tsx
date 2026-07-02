@@ -1,66 +1,24 @@
 import { useState } from "react";
-import {
-  Box,
-  Container,
-  FormControl,
-  FormControlLabel,
-  InputLabel,
-  MenuItem,
-  Paper,
-  Select,
-  Stack,
-  Switch,
-  Typography,
-} from "@mui/material";
+import { Container, FormControl, InputLabel, MenuItem, Paper, Select, Stack } from "@mui/material";
 
-import { AssetConfigurationForm } from "../components/AssetConfigurationForm";
-import { AssetType, type SectionPayload, type TransformerPayload } from "../domain/assetTypes";
-import { useColorMode } from "../theme/ColorModeProvider";
+import { AssetConfigurationForm } from "../components/asset-configuration/AssetConfigurationForm";
+import { SubmittedPayloadPreview } from "../components/asset-configuration/SubmittedPayloadPreview";
+import { ColorModeToggle } from "../components/layout/ColorModeToggle";
+import { PageHeader } from "../components/layout/PageHeader";
+import { type AssetPayload, AssetType } from "../domain/assetTypes";
 
 const assetTypeOptions = [AssetType.Breaker, AssetType.Section, AssetType.Transformer];
 
 export function AssetConfigurationPage(): React.JSX.Element {
   const [assetType, setAssetType] = useState<AssetType>(AssetType.Transformer);
-  const [submittedPayload, setSubmittedPayload] = useState<
-    TransformerPayload | SectionPayload | null
-  >(null);
-  const { mode, toggleColorMode } = useColorMode();
+  const [submittedPayload, setSubmittedPayload] = useState<AssetPayload | null>(null);
 
   return (
     <Container maxWidth="sm" sx={{ pb: { md: 8, xs: 4 }, pt: { md: 4, xs: 2.5 } }}>
       <Stack spacing={3.5}>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "flex-end",
-          }}
-        >
-          <FormControlLabel
-            control={
-              <Switch
-                checked={mode === "dark"}
-                onChange={toggleColorMode}
-                slotProps={{ input: { "aria-label": "Use dark theme" } }}
-              />
-            }
-            label="Dark"
-            sx={{ flexShrink: 0, ml: 0 }}
-          />
-        </Box>
+        <ColorModeToggle />
 
-        <Box>
-          <Typography
-            color="primary.dark"
-            component="h1"
-            sx={{ fontSize: { sm: "2rem", xs: "1.625rem" } }}
-            variant="h4"
-          >
-            Dynamic Asset Configuration
-          </Typography>
-          <Typography color="text.secondary" sx={{ mt: 1 }}>
-            Select an asset type to render the matching validated configuration form.
-          </Typography>
-        </Box>
+        <PageHeader />
 
         <FormControl fullWidth>
           <InputLabel id="asset-type-label">Asset Type</InputLabel>
@@ -97,20 +55,7 @@ export function AssetConfigurationPage(): React.JSX.Element {
           )}
         </Paper>
 
-        {submittedPayload && (
-          <Paper
-            component="pre"
-            sx={{
-              backgroundColor: "#0f2438",
-              color: "#e6f1fb",
-              m: 0,
-              overflowX: "auto",
-              p: 2,
-            }}
-          >
-            {JSON.stringify(submittedPayload, null, 2)}
-          </Paper>
-        )}
+        {submittedPayload && <SubmittedPayloadPreview payload={submittedPayload} />}
       </Stack>
     </Container>
   );

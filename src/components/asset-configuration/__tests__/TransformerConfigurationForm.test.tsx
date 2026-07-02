@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
-import { AssetType, CoolingType, type TransformerPayload } from "../../domain/assetTypes";
+import { AssetType, CoolingType, type TransformerPayload } from "../../../domain/assetTypes";
 import { TransformerConfigurationForm } from "../TransformerConfigurationForm";
 
 describe("TransformerConfigurationForm", () => {

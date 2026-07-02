@@ -1,7 +1,11 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
-import { AssetType, type SectionPayload, type TransformerPayload } from "../../domain/assetTypes";
+import {
+  AssetType,
+  type SectionPayload,
+  type TransformerPayload,
+} from "../../../domain/assetTypes";
 import { AssetConfigurationForm } from "../AssetConfigurationForm";
 
 describe("AssetConfigurationForm", () => {
